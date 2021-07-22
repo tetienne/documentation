@@ -45,14 +45,14 @@ Only the logs data type is supported. Update the following values in the `datado
 logs_config:
   logs_dd_url: "<VECTOR_HOST>:<VECTOR_PORT>"
   logs_no_ssl: true # If TLS/SSL is not enabled on the Vector side
-  use_http: true # Vector `datadog_logs` source only supports HTTP
+  use_http: true # Vector `datadog_agent` source only supports HTTP
 ```
 
 Where `VECTOR_HOST` is the hostname of the system running Vector and `VECTOR_PORT` is the TCP port on which
-the Vector `datadog_logs` source is listening.
+the Vector `datadog_agent` source is listening.
 
 ### Vector configuration
-To receive logs from Datadog Agent, configure Vector with a [datadog_logs source][10].
+To receive logs from Datadog Agent, configure Vector with a [datadog_agent source][10].
 To send logs to Datadog, Vector must be configured with at least one [datadog_logs sink][11].
 
 See the official [Vector documentation][12] for all available configuration parameters and
@@ -63,7 +63,7 @@ Here is a configuration example that adds a tag to every log using the Vector Re
 ```yaml
 sources:
   datadog_agents:
-    type: datadog_logs
+    type: datadog_agent
     address: "[::]:8080" # The <VECTOR_PORT> mentioned above should be set to the port value used here
 
 transforms:
@@ -124,10 +124,10 @@ to fill relevant fields according to the expected schema.
 [7]: https://vector.dev/docs/reference/configuration/transforms/route/
 [8]: /getting_started/tagging
 [9]: https://vector.dev/docs/reference/vrl/
-[10]: https://vector.dev/docs/reference/configuration/sources/datadog_logs/
+[10]: https://vector.dev/docs/reference/configuration/sources/datadog_agent/
 [11]: https://vector.dev/docs/reference/configuration/sinks/datadog_logs/
 [12]: https://vector.dev/docs/reference/configuration/
 [13]: /agent/kubernetes/?tab=helm
 [14]: https://github.com/timberio/vector/tree/master/distribution/helm/vector-aggregator
 [15]: https://vector.dev/docs/setup/installation/package-managers/helm/
-[16]: api/latest/logs/#send-logs
+[16]: /api/latest/logs/#send-logs
