@@ -616,7 +616,7 @@
     "request_schema_description": "Object describing a monitor update request."
   },
   "ListMonitorDowntimes": {
-    "description": "Get all downtimes for the specified monitor",
+    "description": "Get all active downtimes for the specified monitor.",
     "summary": "Get all downtimes for a monitor"
   },
   "MuteMonitor": {
@@ -851,6 +851,12 @@
     "summary": "Delete tests",
     "request_description": "Public ID list of the Synthetic tests to be deleted.",
     "request_schema_description": "A JSON list of the ID or IDs of the Synthetic tests that you want\nto delete."
+  },
+  "TriggerTests": {
+    "description": "Trigger a set of Synthetics tests.",
+    "summary": "Trigger some Synthetics tests",
+    "request_description": "The identifiers of the tests to trigger.",
+    "request_schema_description": "Object describing the synthetics tests to trigger."
   },
   "TriggerCITests": {
     "description": "Trigger a set of Synthetics tests for continuous integration.",
